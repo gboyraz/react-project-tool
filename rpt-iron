@@ -1,5 +1,21 @@
 #!/bin/bash
 
+# Check argument
+if [ $# -lt 1 ]; then
+  echo 1>&2 "$0: not enough arguments!"
+  exit 2
+fi
+
+# Check 
+if [ -d "$1" ]; then
+  echo "$0: '$1' already exists!"
+  exit 2
+fi
+
+# Initialize the project
+npx create-react-app $1
+cd $1
+
 # create .eslintrc
 rm -rf ".eslintrc"
 echo '{
