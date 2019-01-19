@@ -59,3 +59,7 @@ typings/
 
 # next.js build output
 .next
+
+playground
+a-react-library
+a-react-app

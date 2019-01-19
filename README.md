@@ -11,7 +11,7 @@ Main idea of this npm package is like the following
   
 ## Usage
 
-To create a new project, run the command
+To create a new project called a-react-library, run the command
 
 ```
 npx react-project-tool a-react-library
@@ -37,3 +37,11 @@ To debug with VSCode in a react app append following section into .vscode/launch
 }
 ```
 You dont need to change "webpack:///../src/a-react-library/*" but "${workspaceFolder}/../a-react-library/src/a-react-library/*" must be correct for a-react-library location.
+
+I advise you to use https://www.npmjs.com/package/pm2 while development of your react library.
+
+After created your react library and installed pm2 if not exists then run the following command
+```
+pm2 start npm --name a-react-library -- run watch
+```
+
