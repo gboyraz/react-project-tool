@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/gboyraz/react-project-tool#readme",
   "bin": {
-    "rpt-iron": "./rpt-iron"
+    "react-project-tool": "./react-project-tool"
   }
 }
