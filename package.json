@@ -1,0 +1,26 @@
+{
+  "name": "react-project-tool",
+  "version": "0.0.1",
+  "description": "Tools for a react project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gboyraz/react-project-tool.git"
+  },
+  "keywords": [
+    "react",
+    "debug",
+    "vscode",
+    "storybookjs",
+    "babel"
+  ],
+  "author": "Gultekin Boyraz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gboyraz/react-project-tool/issues"
+  },
+  "homepage": "https://github.com/gboyraz/react-project-tool#readme"
+}
