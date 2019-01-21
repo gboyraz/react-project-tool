@@ -30,18 +30,60 @@ npm run watch
 ## Usage of it in a react app
 Install a-react-library to a react app with file protocol file:*
 
-To debug with VSCode in a react app append following section into .vscode/launch.json.
+Lets suppose that you have the following project folder structure
+```
+/projects-folder
+    /a-react-app    
+    /a-react-library
+```
+
+To debug with VSCode in a-react-app append following section into .vscode/launch.json in the a-react-app.
+
 ```json
     "sourceMapPathOverrides": {
         "webpack:///../src/a-react-library/*": "${workspaceFolder}/../a-react-library/src/a-react-library/*"
 }
 ```
-You dont need to change "webpack:///../src/a-react-library/*" but "${workspaceFolder}/../a-react-library/src/a-react-library/*" must be correct for a-react-library location.
+
+Or lets suppose that you have the following project folder structure
+```
+/projects-folder
+    /a-react-app    
+    /another-projects-folder
+        /a-react-library
+```
+
+To debug with VSCode in a-react-app append following section into .vscode/launch.json in the a-react-app.
+
+```json
+    "sourceMapPathOverrides": {
+        "webpack:///../src/a-react-library/*": "${workspaceFolder}/../another-projects-folder/a-react-library/src/a-react-library/*"
+}
+```
+
+Or finally lets suppose that you have the following project folder structure
+```
+/projects-folder
+    /another-projects-folder
+        /a-react-app    
+    /a-react-library
+```
+
+To debug with VSCode in a-react-app append following section into .vscode/launch.json in the a-react-app.
+
+```json
+    "sourceMapPathOverrides": {
+        "webpack:///../src/a-react-library/*": "${workspaceFolder}/../../a-react-library/src/a-react-library/*"
+}
+```
+
+You noticed that there is no change in ""webpack:///../src/a-react-library/*" in all cases. If you set map correctly you can debug it in VSCode.
 
 I advise you to use https://www.npmjs.com/package/pm2 while development of your react library.
 
 After created your react library and installed pm2 if not exists then run the following command
+
+
 ```
 pm2 start npm --name a-react-library -- run watch
 ```
-
