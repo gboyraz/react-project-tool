@@ -201,6 +201,6 @@ if [ "${STORYBOOKJS}" == YES ]; then
 
 fi
 
-cd "${ROOT_DIR}"
+cd "${PROJECT_DIR}"
 # clear all variables
-exec bash
+#exec bash
