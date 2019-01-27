@@ -1,6 +1,6 @@
 {
   "name": "react-project-tool",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Tools for a react project",
   "repository": {
     "type": "git",
@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/gboyraz/react-project-tool#readme",
   "bin": {
-    "react-project-tool": "./react-project-tool"
+    "react-project-tool": "./react-project-tool.sh"
   }
 }

@@ -1,20 +1,20 @@
 #!/bin/bash
 
-# Check argument
-if [ $# -lt 1 ]; then
-  echo 1>&2 "$0: not enough arguments!"
-  exit 2
+if [ -z "${PROJECT_NAME}" ]; then
+  echo "You must a pass project name as parameter."
+  cd ${ROOT_DIR}
+  return 2
 fi
 
 # Check 
-if [ -d "$1" ]; then
-  echo "$0: '$1' already exists!"
-  exit 2
+if [ -d "${PROJECT_NAME}" ]; then
+  echo "'${PROJECT_NAME}' already exists!"
+  return 2
 fi
 
 # Initialize the project
-npx create-react-app $1
-cd $1
+npx create-react-app ${PROJECT_NAME}
+cd ${PROJECT_NAME}
 
 # create .eslintrc
 rm -rf ".eslintrc"
@@ -33,15 +33,15 @@ echo '{
 rm -rf src
 mkdir src
 cd src
-mkdir $1
-cd $1
+mkdir ${PROJECT_NAME}
+cd ${PROJECT_NAME}
 
-# create sample component
-rm -rf "SampleComponent.js"
+# create component
+rm -rf "'${COMPONENT}'.js"
 echo '
 import React from "react";
 
-class SampleComponent extends React.Component {
+class '${COMPONENT}' extends React.Component {
   a_class_field = "Hello world";
 
   render() {
@@ -49,14 +49,14 @@ class SampleComponent extends React.Component {
   }
 }
 
-export default SampleComponent;
-' > SampleComponent.js
+export default '${COMPONENT}';
+' > ${COMPONENT}.js
 
 # create index.js
 rm -rf "index.js"
 echo '
-import SampleComponent from "./SampleComponent";
-export { SampleComponent};
+import '${COMPONENT}' from "./'${COMPONENT}'";
+export { '${COMPONENT}' };
 ' > index.js
 
 cd ..
@@ -66,10 +66,10 @@ rm -rf "index.js"
 echo '
 import React from "react";
 import { render } from "react-dom";
-import SampleComponent from "./'$1'/SampleComponent";
+import '${COMPONENT}' from "./'${PROJECT_NAME}'/'${COMPONENT}'";
 
 const App = () => (
-  <SampleComponent/>
+  <'${COMPONENT}'/>
 );
 
 render(<App />, document.getElementById("root"));
@@ -81,20 +81,20 @@ cd ..
 rm -rf "package.json"
 echo '
 {
-  "name": "'$1'",
+  "name": "'${PROJECT_NAME}'",
   "version": "0.1.0",
-  "main": "'$1'/index.js",
-  "module": "'$1'/index.js",
+  "main": "'${PROJECT_NAME}'/index.js",
+  "module": "'${PROJECT_NAME}'/index.js",
   "files": [
-    "'$1'"
+    "'${PROJECT_NAME}'"
   ],
   "scripts": {
     "start": "react-scripts start",
     "build-examples": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build": "rimraf '$1'  && NODE_ENV=production babel src/'$1' --out-dir '$1' --source-maps --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-    "watch":"watch '"'"'npm run build'"'"' ./src/'$1'"
+    "build": "rimraf '${PROJECT_NAME}'  && NODE_ENV=production babel src/'${PROJECT_NAME}' --out-dir '${PROJECT_NAME}' --source-maps --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+    "watch":"watch '"'"'npm run build'"'"' ./src/'${PROJECT_NAME}'"
   },
   "dependencies": {
     "react": "^16.7.0",
