@@ -53,13 +53,13 @@ echo ""
 if [ -z "${PROJECT_NAME}" ]; then
   echo "You must a pass project name as parameter."
   cd ${ROOT_DIR}
-  return 2
+  exit 2
 fi
 
 # Check 
 if [ -d "${PROJECT_NAME}" ]; then
   echo "'${PROJECT_NAME}' already exists!"
-  return 2
+  exit 2
 fi
 
 # Initialize the project
