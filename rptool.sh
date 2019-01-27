@@ -37,7 +37,7 @@ PROJECT_NAME=${POSITIONAL[0]}
 PROJECT_DIR="${ROOT_DIR}/${PROJECT_NAME}"
 
 if [ -z "${COMPONENT}" ]; then
-    COMPONENT="SampleComponent"
+    COMPONENT="AComponent"
 fi
 
 echo ""
@@ -53,17 +53,21 @@ echo ""
 if [ -z "${PROJECT_NAME}" ]; then
   echo "You must a pass project name as parameter."
   cd ${ROOT_DIR}
-  exit 2
+  exit 1
 fi
 
 # Check 
 if [ -d "${PROJECT_NAME}" ]; then
   echo "'${PROJECT_NAME}' already exists!"
-  exit 2
+  exit 1
 fi
 
 # Initialize the project
 npx create-react-app ${PROJECT_NAME}
+if [ $? -gt 0 ];
+then
+    exit $?
+fi
 cd ${PROJECT_NAME}
 
 # create .eslintrc
@@ -172,8 +176,18 @@ echo '
 
 rm -rf node_modules
 rm -rf package-lock.json
+
 npm install
+if [ $? -gt 0 ];
+then
+    exit $?
+fi
+
 npm run build
+if [ $? -gt 0 ];
+then
+    exit $?
+fi
 
 # init storybook
 if [ "${STORYBOOKJS}" == YES ]; then
@@ -182,6 +196,10 @@ if [ "${STORYBOOKJS}" == YES ]; then
 
     cd ${PROJECT_DIR}
     npx -p @storybook/cli sb init
+    if [ $? -gt 0 ];
+    then
+        exit $?
+    fi
 
     cd src/stories
     rm -rf index.js
