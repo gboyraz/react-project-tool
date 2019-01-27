@@ -105,7 +105,8 @@ To debug with VSCode in storybookjs append following section into .vscode/launch
 
 ```json
     "sourceMapPathOverrides": {
-        "webpack:///../src/a-react-library/*": "${workspaceFolder}/src/a-react-library/*"
+        "webpack:///./src/a-react-library/*": "${workspaceFolder}/src/a-react-library/*",
+        "webpack:///./src/stories/*": "${workspaceFolder}/src/stories/*"
 }
 ```
 
