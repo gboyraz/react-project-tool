@@ -26,7 +26,7 @@ npx rptool a-react-library -s
 
 To set first component name in project init
 ```
-npx rptool a-react-library -s -c a-component-name
+npx rptool a-react-library -s -c AComponentName
 ```
 
 To check whether it has no issue, run the command in a-react-library dir
