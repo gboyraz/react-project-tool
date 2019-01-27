@@ -1,4 +1,4 @@
-# react-project-tool
+# rptool
 
 It creates a library of React components that can be debugged in a react application or in storybookjs. It is completely a shell script. It works only in Linux and Mac OS.
 
@@ -15,18 +15,18 @@ Main idea of this npm package is like the following
 To create a new project called a-react-library, run the command
 
 ```
-npx react-project-tool a-react-library
+npx rptool a-react-library
 ```
 
 To create a new project called a-react-library with storybookjs, run the command
 
 ```
-npx react-project-tool a-react-library -s
+npx rptool a-react-library -s
 ```
 
 To set first component name in project init
 ```
-npx react-project-tool a-react-library -s -c a-component-name
+npx rptool a-react-library -s -c a-component-name
 ```
 
 To check whether it has no issue, run the command in a-react-library dir

@@ -1,10 +1,10 @@
 {
-  "name": "react-project-tool",
-  "version": "0.1.6",
+  "name": "rptool",
+  "version": "0.1.0",
   "description": "Tools for a react project",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gboyraz/react-project-tool.git"
+    "url": "git+https://github.com/gboyraz/rptool.git"
   },
   "keywords": [
     "react",
@@ -16,11 +16,11 @@
   "author": "Gultekin Boyraz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gboyraz/react-project-tool/issues"
+    "url": "https://github.com/gboyraz/rptool/issues"
   },
-  "homepage": "https://github.com/gboyraz/react-project-tool#readme",
+  "homepage": "https://github.com/gboyraz/rptool#readme",
   "bin": {
-    "react-project-tool": "./react-project-tool.sh"
+    "rptool": "./rptool.sh"
   },
   "os": [
     "darwin",
