@@ -147,13 +147,13 @@ echo '
     "build-examples": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build": "rimraf '${PROJECT_NAME}'  && NODE_ENV=production babel src/'${PROJECT_NAME}' --out-dir '${PROJECT_NAME}' --source-maps --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+    "build": "rimraf '${PROJECT_NAME}'  && NODE_ENV=production babel src/'${PROJECT_NAME}' --out-dir '${PROJECT_NAME}' --source-maps --copy-files",
     "watch":"watch '"'"'npm run build'"'"' ./src/'${PROJECT_NAME}'"
   },
   "dependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-scripts": "^2.1.3"
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-scripts": "^2.1.8"
   },  
   "devDependencies": {
     "@babel/cli": "^7.2.3",
